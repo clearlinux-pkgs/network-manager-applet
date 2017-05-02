@@ -4,7 +4,7 @@
 #
 Name     : network-manager-applet
 Version  : 1.4.6
-Release  : 2
+Release  : 3
 URL      : http://ftp.acc.umu.se/pub/gnome/sources/network-manager-applet/1.4/network-manager-applet-1.4.6.tar.xz
 Source0  : http://ftp.acc.umu.se/pub/gnome/sources/network-manager-applet/1.4/network-manager-applet-1.4.6.tar.xz
 Summary  : NetworkManager UI utilities (libnm-glib version)
