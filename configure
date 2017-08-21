@@ -1,1 +1,1 @@
---without-wwan --without-team
+--without-wwan --without-team --without-selinux
