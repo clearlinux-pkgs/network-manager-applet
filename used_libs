@@ -12,6 +12,7 @@ libgobject-2.0.so.0
 libgtk-3.so.0
 libgudev-1.0.so.0
 libm.so.6
+libmm-glib.so.0
 libnm-glib.so.4
 libnm-util.so.2
 libnm.so.0

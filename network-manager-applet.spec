@@ -4,7 +4,7 @@
 #
 Name     : network-manager-applet
 Version  : 1.8.14
-Release  : 14
+Release  : 15
 URL      : https://download.gnome.org/sources/network-manager-applet/1.8/network-manager-applet-1.8.14.tar.xz
 Source0  : https://download.gnome.org/sources/network-manager-applet/1.8/network-manager-applet-1.8.14.tar.xz
 Summary  : NetworkManager UI utilities (libnm-glib version)
@@ -128,7 +128,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1530279193
+export SOURCE_DATE_EPOCH=1530279443
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
 export NM=gcc-nm
@@ -136,7 +136,7 @@ export CFLAGS="$CFLAGS -O3 -Os -fdata-sections -ffat-lto-objects -ffunction-sect
 export FCFLAGS="$CFLAGS -O3 -Os -fdata-sections -ffat-lto-objects -ffunction-sections -flto=4 -fno-semantic-interposition "
 export FFLAGS="$CFLAGS -O3 -Os -fdata-sections -ffat-lto-objects -ffunction-sections -flto=4 -fno-semantic-interposition "
 export CXXFLAGS="$CXXFLAGS -O3 -Os -fdata-sections -ffat-lto-objects -ffunction-sections -flto=4 -fno-semantic-interposition "
-%configure --disable-static --without-wwan --without-team --without-selinux
+%configure --disable-static --without-team --without-selinux
 make  %{?_smp_mflags}
 
 %check
@@ -147,7 +147,7 @@ export no_proxy=localhost,127.0.0.1,0.0.0.0
 make VERBOSE=1 V=1 %{?_smp_mflags} check
 
 %install
-export SOURCE_DATE_EPOCH=1530279193
+export SOURCE_DATE_EPOCH=1530279443
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/doc/network-manager-applet
 cp COPYING %{buildroot}/usr/share/doc/network-manager-applet/COPYING
