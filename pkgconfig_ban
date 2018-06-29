@@ -2,7 +2,5 @@
 # but are undesirable. One entry per line, no whitespace.
 appindicator3-0.1
 dbusmenu-gtk3-0.4
-jansson
-mm-glib
 libselinux
 ayatana-appindicator3-0.1
