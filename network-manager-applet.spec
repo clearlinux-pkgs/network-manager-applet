@@ -4,20 +4,21 @@
 #
 Name     : network-manager-applet
 Version  : 1.8.14
-Release  : 15
+Release  : 16
 URL      : https://download.gnome.org/sources/network-manager-applet/1.8/network-manager-applet-1.8.14.tar.xz
 Source0  : https://download.gnome.org/sources/network-manager-applet/1.8/network-manager-applet-1.8.14.tar.xz
 Summary  : NetworkManager UI utilities (libnm-glib version)
 Group    : Development/Tools
 License  : GPL-2.0
 Requires: network-manager-applet-bin
-Requires: network-manager-applet-lib
 Requires: network-manager-applet-data
+Requires: network-manager-applet-lib
 Requires: network-manager-applet-license
 Requires: network-manager-applet-locales
 Requires: network-manager-applet-man
 BuildRequires : docbook-xml
 BuildRequires : gettext
+BuildRequires : gobject-introspection-dev
 BuildRequires : gtk-doc
 BuildRequires : gtk-doc-dev
 BuildRequires : intltool
@@ -128,7 +129,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1530279443
+export SOURCE_DATE_EPOCH=1530457577
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
 export NM=gcc-nm
@@ -147,7 +148,7 @@ export no_proxy=localhost,127.0.0.1,0.0.0.0
 make VERBOSE=1 V=1 %{?_smp_mflags} check
 
 %install
-export SOURCE_DATE_EPOCH=1530279443
+export SOURCE_DATE_EPOCH=1530457577
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/doc/network-manager-applet
 cp COPYING %{buildroot}/usr/share/doc/network-manager-applet/COPYING
@@ -164,9 +165,12 @@ cp COPYING %{buildroot}/usr/share/doc/network-manager-applet/COPYING
 
 %files data
 %defattr(-,root,root,-)
+/usr/lib64/girepository-1.0/NMA-1.0.typelib
+/usr/lib64/girepository-1.0/NMGtk-1.0.typelib
 /usr/share/GConf/gsettings/nm-applet.convert
 /usr/share/applications/nm-applet.desktop
 /usr/share/applications/nm-connection-editor.desktop
+/usr/share/gir-1.0/*.gir
 /usr/share/glib-2.0/schemas/org.gnome.nm-applet.gschema.xml
 /usr/share/icons/hicolor/16x16/apps/nm-device-wired.png
 /usr/share/icons/hicolor/16x16/apps/nm-no-connection.png
