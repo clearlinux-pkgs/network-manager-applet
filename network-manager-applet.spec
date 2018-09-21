@@ -4,7 +4,7 @@
 #
 Name     : network-manager-applet
 Version  : 1.8.14
-Release  : 17
+Release  : 18
 URL      : https://download.gnome.org/sources/network-manager-applet/1.8/network-manager-applet-1.8.14.tar.xz
 Source0  : https://download.gnome.org/sources/network-manager-applet/1.8/network-manager-applet-1.8.14.tar.xz
 Summary  : NetworkManager UI utilities (libnm-glib version)
