@@ -4,7 +4,7 @@
 #
 Name     : network-manager-applet
 Version  : 1.8.20
-Release  : 20
+Release  : 21
 URL      : https://download.gnome.org/sources/network-manager-applet/1.8/network-manager-applet-1.8.20.tar.xz
 Source0  : https://download.gnome.org/sources/network-manager-applet/1.8/network-manager-applet-1.8.20.tar.xz
 Summary  : Applet for managing network connections
@@ -128,7 +128,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1550423032
+export SOURCE_DATE_EPOCH=1550425661
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
 export NM=gcc-nm
@@ -136,7 +136,7 @@ export CFLAGS="$CFLAGS -O3 -Os -fdata-sections -ffat-lto-objects -ffunction-sect
 export FCFLAGS="$CFLAGS -O3 -Os -fdata-sections -ffat-lto-objects -ffunction-sections -flto=4 -fno-semantic-interposition "
 export FFLAGS="$CFLAGS -O3 -Os -fdata-sections -ffat-lto-objects -ffunction-sections -flto=4 -fno-semantic-interposition "
 export CXXFLAGS="$CXXFLAGS -O3 -Os -fdata-sections -ffat-lto-objects -ffunction-sections -flto=4 -fno-semantic-interposition "
-%configure --disable-static --without-team --without-selinux
+%configure --disable-static --without-team --without-selinux --with-libnm-gtk=yes
 make  %{?_smp_mflags}
 
 %check
@@ -147,7 +147,7 @@ export no_proxy=localhost,127.0.0.1,0.0.0.0
 make VERBOSE=1 V=1 %{?_smp_mflags} check
 
 %install
-export SOURCE_DATE_EPOCH=1550423032
+export SOURCE_DATE_EPOCH=1550425661
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/network-manager-applet
 cp COPYING %{buildroot}/usr/share/package-licenses/network-manager-applet/COPYING
@@ -165,6 +165,7 @@ cp COPYING %{buildroot}/usr/share/package-licenses/network-manager-applet/COPYIN
 %files data
 %defattr(-,root,root,-)
 /usr/lib64/girepository-1.0/NMA-1.0.typelib
+/usr/lib64/girepository-1.0/NMGtk-1.0.typelib
 /usr/share/GConf/gsettings/nm-applet.convert
 /usr/share/applications/nm-applet.desktop
 /usr/share/applications/nm-connection-editor.desktop
@@ -256,6 +257,13 @@ cp COPYING %{buildroot}/usr/share/package-licenses/network-manager-applet/COPYIN
 
 %files dev
 %defattr(-,root,root,-)
+/usr/include/libnm-gtk/nm-cert-chooser.h
+/usr/include/libnm-gtk/nm-mobile-providers.h
+/usr/include/libnm-gtk/nm-mobile-wizard.h
+/usr/include/libnm-gtk/nm-ui-utils.h
+/usr/include/libnm-gtk/nm-vpn-password-dialog.h
+/usr/include/libnm-gtk/nm-wifi-dialog.h
+/usr/include/libnm-gtk/nm-wireless-dialog.h
 /usr/include/libnma/nma-cert-chooser.h
 /usr/include/libnma/nma-mobile-providers.h
 /usr/include/libnma/nma-mobile-wizard.h
@@ -263,7 +271,9 @@ cp COPYING %{buildroot}/usr/share/package-licenses/network-manager-applet/COPYIN
 /usr/include/libnma/nma-version.h
 /usr/include/libnma/nma-vpn-password-dialog.h
 /usr/include/libnma/nma-wifi-dialog.h
+/usr/lib64/libnm-gtk.so
 /usr/lib64/libnma.so
+/usr/lib64/pkgconfig/libnm-gtk.pc
 /usr/lib64/pkgconfig/libnma.pc
 
 %files doc
@@ -292,6 +302,8 @@ cp COPYING %{buildroot}/usr/share/package-licenses/network-manager-applet/COPYIN
 
 %files lib
 %defattr(-,root,root,-)
+/usr/lib64/libnm-gtk.so.0
+/usr/lib64/libnm-gtk.so.0.0.0
 /usr/lib64/libnma.so.0
 /usr/lib64/libnma.so.0.0.0
 
