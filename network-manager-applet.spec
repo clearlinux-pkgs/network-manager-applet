@@ -4,7 +4,7 @@
 #
 Name     : network-manager-applet
 Version  : 1.8.20
-Release  : 21
+Release  : 22
 URL      : https://download.gnome.org/sources/network-manager-applet/1.8/network-manager-applet-1.8.20.tar.xz
 Source0  : https://download.gnome.org/sources/network-manager-applet/1.8/network-manager-applet-1.8.20.tar.xz
 Summary  : Applet for managing network connections
@@ -51,7 +51,6 @@ Summary: bin components for the network-manager-applet package.
 Group: Binaries
 Requires: network-manager-applet-data = %{version}-%{release}
 Requires: network-manager-applet-license = %{version}-%{release}
-Requires: network-manager-applet-man = %{version}-%{release}
 
 %description bin
 bin components for the network-manager-applet package.
@@ -72,6 +71,7 @@ Requires: network-manager-applet-lib = %{version}-%{release}
 Requires: network-manager-applet-bin = %{version}-%{release}
 Requires: network-manager-applet-data = %{version}-%{release}
 Provides: network-manager-applet-devel = %{version}-%{release}
+Requires: network-manager-applet = %{version}-%{release}
 
 %description dev
 dev components for the network-manager-applet package.
@@ -128,7 +128,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1550425661
+export SOURCE_DATE_EPOCH=1557020937
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
 export NM=gcc-nm
@@ -147,7 +147,7 @@ export no_proxy=localhost,127.0.0.1,0.0.0.0
 make VERBOSE=1 V=1 %{?_smp_mflags} check
 
 %install
-export SOURCE_DATE_EPOCH=1550425661
+export SOURCE_DATE_EPOCH=1557020937
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/network-manager-applet
 cp COPYING %{buildroot}/usr/share/package-licenses/network-manager-applet/COPYING
