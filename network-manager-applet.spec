@@ -4,10 +4,10 @@
 #
 Name     : network-manager-applet
 Version  : 1.8.20
-Release  : 22
+Release  : 23
 URL      : https://download.gnome.org/sources/network-manager-applet/1.8/network-manager-applet-1.8.20.tar.xz
 Source0  : https://download.gnome.org/sources/network-manager-applet/1.8/network-manager-applet-1.8.20.tar.xz
-Summary  : Applet for managing network connections
+Summary  : NetworkManager UI utilities (libnm-glib version)
 Group    : Development/Tools
 License  : GPL-2.0
 Requires: network-manager-applet-bin = %{version}-%{release}
@@ -16,6 +16,7 @@ Requires: network-manager-applet-lib = %{version}-%{release}
 Requires: network-manager-applet-license = %{version}-%{release}
 Requires: network-manager-applet-locales = %{version}-%{release}
 Requires: network-manager-applet-man = %{version}-%{release}
+Requires: NetworkManager
 BuildRequires : buildreq-gnome
 BuildRequires : buildreq-meson
 BuildRequires : docbook-xml
@@ -128,7 +129,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1557020937
+export SOURCE_DATE_EPOCH=1557243748
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
 export NM=gcc-nm
@@ -147,7 +148,7 @@ export no_proxy=localhost,127.0.0.1,0.0.0.0
 make VERBOSE=1 V=1 %{?_smp_mflags} check
 
 %install
-export SOURCE_DATE_EPOCH=1557020937
+export SOURCE_DATE_EPOCH=1557243748
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/network-manager-applet
 cp COPYING %{buildroot}/usr/share/package-licenses/network-manager-applet/COPYING
