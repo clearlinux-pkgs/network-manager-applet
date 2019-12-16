@@ -4,7 +4,7 @@
 #
 Name     : network-manager-applet
 Version  : 1.8.24
-Release  : 27
+Release  : 28
 URL      : https://download.gnome.org/sources/network-manager-applet/1.8/network-manager-applet-1.8.24.tar.xz
 Source0  : https://download.gnome.org/sources/network-manager-applet/1.8/network-manager-applet-1.8.24.tar.xz
 Summary  : NetworkManager UI utilities (libnm-glib version)
@@ -36,9 +36,6 @@ BuildRequires : pkgconfig(gudev-1.0)
 BuildRequires : pkgconfig(iso-codes)
 BuildRequires : pkgconfig(jansson)
 BuildRequires : pkgconfig(libnm)
-BuildRequires : pkgconfig(libnm-glib)
-BuildRequires : pkgconfig(libnm-glib-vpn)
-BuildRequires : pkgconfig(libnm-util)
 BuildRequires : pkgconfig(libnotify)
 BuildRequires : pkgconfig(libsecret-1)
 BuildRequires : pkgconfig(mm-glib)
@@ -123,13 +120,14 @@ man components for the network-manager-applet package.
 
 %prep
 %setup -q -n network-manager-applet-1.8.24
+cd %{_builddir}/network-manager-applet-1.8.24
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1570637485
+export SOURCE_DATE_EPOCH=1576103417
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
@@ -138,7 +136,7 @@ export CFLAGS="$CFLAGS -O3 -Os -fdata-sections -ffat-lto-objects -ffunction-sect
 export FCFLAGS="$CFLAGS -O3 -Os -fdata-sections -ffat-lto-objects -ffunction-sections -flto=4 -fno-semantic-interposition "
 export FFLAGS="$CFLAGS -O3 -Os -fdata-sections -ffat-lto-objects -ffunction-sections -flto=4 -fno-semantic-interposition "
 export CXXFLAGS="$CXXFLAGS -O3 -Os -fdata-sections -ffat-lto-objects -ffunction-sections -flto=4 -fno-semantic-interposition "
-%configure --disable-static --without-team --without-selinux --with-libnm-gtk=yes
+%configure --disable-static --without-team --without-selinux
 make  %{?_smp_mflags}
 
 %check
@@ -149,10 +147,10 @@ export no_proxy=localhost,127.0.0.1,0.0.0.0
 make VERBOSE=1 V=1 %{?_smp_mflags} check
 
 %install
-export SOURCE_DATE_EPOCH=1570637485
+export SOURCE_DATE_EPOCH=1576103417
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/network-manager-applet
-cp COPYING %{buildroot}/usr/share/package-licenses/network-manager-applet/COPYING
+cp %{_builddir}/network-manager-applet-1.8.24/COPYING %{buildroot}/usr/share/package-licenses/network-manager-applet/68c94ffc34f8ad2d7bfae3f5a6b996409211c1b1
 %make_install
 %find_lang nm-applet
 
@@ -167,7 +165,6 @@ cp COPYING %{buildroot}/usr/share/package-licenses/network-manager-applet/COPYIN
 %files data
 %defattr(-,root,root,-)
 /usr/lib64/girepository-1.0/NMA-1.0.typelib
-/usr/lib64/girepository-1.0/NMGtk-1.0.typelib
 /usr/share/GConf/gsettings/nm-applet.convert
 /usr/share/applications/nm-applet.desktop
 /usr/share/applications/nm-connection-editor.desktop
@@ -259,13 +256,6 @@ cp COPYING %{buildroot}/usr/share/package-licenses/network-manager-applet/COPYIN
 
 %files dev
 %defattr(-,root,root,-)
-/usr/include/libnm-gtk/nm-cert-chooser.h
-/usr/include/libnm-gtk/nm-mobile-providers.h
-/usr/include/libnm-gtk/nm-mobile-wizard.h
-/usr/include/libnm-gtk/nm-ui-utils.h
-/usr/include/libnm-gtk/nm-vpn-password-dialog.h
-/usr/include/libnm-gtk/nm-wifi-dialog.h
-/usr/include/libnm-gtk/nm-wireless-dialog.h
 /usr/include/libnma/nma-bar-code-widget.h
 /usr/include/libnma/nma-bar-code.h
 /usr/include/libnma/nma-cert-chooser.h
@@ -275,9 +265,7 @@ cp COPYING %{buildroot}/usr/share/package-licenses/network-manager-applet/COPYIN
 /usr/include/libnma/nma-version.h
 /usr/include/libnma/nma-vpn-password-dialog.h
 /usr/include/libnma/nma-wifi-dialog.h
-/usr/lib64/libnm-gtk.so
 /usr/lib64/libnma.so
-/usr/lib64/pkgconfig/libnm-gtk.pc
 /usr/lib64/pkgconfig/libnma.pc
 
 %files doc
@@ -307,14 +295,12 @@ cp COPYING %{buildroot}/usr/share/package-licenses/network-manager-applet/COPYIN
 
 %files lib
 %defattr(-,root,root,-)
-/usr/lib64/libnm-gtk.so.0
-/usr/lib64/libnm-gtk.so.0.0.0
 /usr/lib64/libnma.so.0
 /usr/lib64/libnma.so.0.0.0
 
 %files license
 %defattr(0644,root,root,0755)
-/usr/share/package-licenses/network-manager-applet/COPYING
+/usr/share/package-licenses/network-manager-applet/68c94ffc34f8ad2d7bfae3f5a6b996409211c1b1
 
 %files man
 %defattr(0644,root,root,0755)

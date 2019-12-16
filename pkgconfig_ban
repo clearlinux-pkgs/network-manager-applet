@@ -5,3 +5,6 @@ dbusmenu-gtk3-0.4
 libselinux
 ayatana-appindicator3-0.1
 gtk4
+libnm-glib
+libnm-glib-vpn
+libnm-util

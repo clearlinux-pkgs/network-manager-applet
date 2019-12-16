@@ -1,1 +1,1 @@
- --without-team --without-selinux --with-libnm-gtk=yes
+ --without-team --without-selinux
