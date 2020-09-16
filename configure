@@ -1,1 +1,1 @@
- --without-team --without-selinux
+ --without-team --without-selinux --without-appindicator
