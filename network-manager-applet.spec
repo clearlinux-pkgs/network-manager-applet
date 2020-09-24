@@ -4,7 +4,7 @@
 #
 Name     : network-manager-applet
 Version  : 1.18.0
-Release  : 30
+Release  : 31
 URL      : https://download.gnome.org/sources/network-manager-applet/1.18/network-manager-applet-1.18.0.tar.xz
 Source0  : https://download.gnome.org/sources/network-manager-applet/1.18/network-manager-applet-1.18.0.tar.xz
 Summary  : No detailed summary available
