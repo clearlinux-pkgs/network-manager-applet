@@ -4,7 +4,7 @@
 #
 Name     : network-manager-applet
 Version  : 1.28.0
-Release  : 38
+Release  : 39
 URL      : https://download.gnome.org/sources/network-manager-applet/1.28/network-manager-applet-1.28.0.tar.xz
 Source0  : https://download.gnome.org/sources/network-manager-applet/1.28/network-manager-applet-1.28.0.tar.xz
 Summary  : No detailed summary available
@@ -86,7 +86,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1655137235
+export SOURCE_DATE_EPOCH=1664161124
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
@@ -106,10 +106,10 @@ export no_proxy=localhost,127.0.0.1,0.0.0.0
 make %{?_smp_mflags} check
 
 %install
-export SOURCE_DATE_EPOCH=1655137235
+export SOURCE_DATE_EPOCH=1664161124
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/network-manager-applet
-cp %{_builddir}/network-manager-applet-1.28.0/COPYING %{buildroot}/usr/share/package-licenses/network-manager-applet/4cc77b90af91e615a64ae04893fdffa7939db84c
+cp %{_builddir}/network-manager-applet-%{version}/COPYING %{buildroot}/usr/share/package-licenses/network-manager-applet/4cc77b90af91e615a64ae04893fdffa7939db84c || :
 %make_install
 %find_lang nm-applet
 
