@@ -4,10 +4,10 @@
 # Using build pattern: configure
 #
 Name     : network-manager-applet
-Version  : 1.30.0
-Release  : 41
-URL      : https://download.gnome.org/sources/network-manager-applet/1.30/network-manager-applet-1.30.0.tar.xz
-Source0  : https://download.gnome.org/sources/network-manager-applet/1.30/network-manager-applet-1.30.0.tar.xz
+Version  : 1.32.0
+Release  : 42
+URL      : https://download.gnome.org/sources/network-manager-applet/1.32/network-manager-applet-1.32.0.tar.xz
+Source0  : https://download.gnome.org/sources/network-manager-applet/1.32/network-manager-applet-1.32.0.tar.xz
 Summary  : No detailed summary available
 Group    : Development/Tools
 License  : GPL-2.0
@@ -81,15 +81,15 @@ man components for the network-manager-applet package.
 
 
 %prep
-%setup -q -n network-manager-applet-1.30.0
-cd %{_builddir}/network-manager-applet-1.30.0
+%setup -q -n network-manager-applet-1.32.0
+cd %{_builddir}/network-manager-applet-1.32.0
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1680040548
+export SOURCE_DATE_EPOCH=1681856715
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
@@ -109,7 +109,7 @@ export no_proxy=localhost,127.0.0.1,0.0.0.0
 make %{?_smp_mflags} check
 
 %install
-export SOURCE_DATE_EPOCH=1680040548
+export SOURCE_DATE_EPOCH=1681856715
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/network-manager-applet
 cp %{_builddir}/network-manager-applet-%{version}/COPYING %{buildroot}/usr/share/package-licenses/network-manager-applet/4cc77b90af91e615a64ae04893fdffa7939db84c || :
